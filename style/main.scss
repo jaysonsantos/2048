@@ -324,7 +324,8 @@ hr {
     font-weight: bold;
     z-index: 10;
 
-    font-size: 55px;
+    //font-size: 55px;
+    font-size: 0px;
   }
 
   // Movement transition
@@ -350,6 +351,18 @@ hr {
                    false true, // 1024
                    false true; // 2048
 
+  $background-images: "2.png",
+                      "4.png",
+                      "8.gif",
+                      "16.gif",
+                      "32.gif",
+                      "64.gif",
+                      "128.gif",
+                      "256.gif",
+                      "512.gif",
+                      "1024.gif",
+                      "2048.gif";
+
   // Build tile colors
   @while $exponent <= $limit {
     $power: pow($base, $exponent);
@@ -373,7 +386,7 @@ hr {
       }
 
       // Set background
-      background: $mixed-background;
+      background: $mixed-background url("/images/#{nth($background-images, $exponent)}");
 
       // Add glow
       $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
@@ -382,6 +395,7 @@ hr {
         box-shadow: 0 0 30px 10px rgba($tile-gold-glow-color, $glow-opacity / 1.8),
                     inset 0 0 0 1px rgba(white, $glow-opacity / 3);
       }
+/*
 
       // Adjust font size for bigger numbers
       @if $power >= 100 and $power < 1000 {
@@ -397,7 +411,7 @@ hr {
         @include smaller($mobile-threshold) {
           font-size: 15px;
         }
-      }
+      }*/
     }
 
     $exponent: $exponent + 1;
@@ -408,11 +422,11 @@ hr {
     color: $bright-text-color;
     background: mix(#333, $tile-gold-color, 95%);
 
-    font-size: 30px;
+    /*font-size: 30px;
 
     @include smaller($mobile-threshold) {
       font-size: 10px;
-    }
+    }*/
   }
 }
 
