@@ -386,7 +386,7 @@ hr {
       }
 
       // Set background
-      background: $mixed-background url("/images/#{nth($background-images, $exponent)}");
+      background: $mixed-background url("../images/#{nth($background-images, $exponent)}");
 
       // Add glow
       $glow-opacity: max($exponent - 4, 0) / ($limit - 4);
